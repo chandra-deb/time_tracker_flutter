@@ -1,0 +1,4 @@
+#Thu Nov 04 23:26:24 EDT 2021
+base.0=/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

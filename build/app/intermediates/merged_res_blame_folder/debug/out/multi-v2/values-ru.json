@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml",
+            "map": [
+                {
+                    "source": "/home/chandra/.gradle/caches/transforms-3/367a69f1bf557cdc6ab0036b1da0ba42/transformed/core-1.1.0/res/values-ru/values-ru.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
