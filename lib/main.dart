@@ -1,12 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:time_tracker/app/sign_in/sign_in_page.dart';
+import 'app/landing_page.dart';
+import './services/auth.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,28 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Time Tracker",
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: const SignInPage(),
+      home: FutureBuilder(
+        // Initialize FlutterFire:
+        future: _initialization,
+        builder: (context, snapshot) {
+          // Check for errors
+          if (snapshot.hasError) {
+            return Text("something went wrong");
+          }
+
+          // Once complete, show your application
+          if (snapshot.connectionState == ConnectionState.done) {
+            return LandingPage(
+              auth: Auth(),
+            );
+          }
+
+          // Otherwise, show something whilst waiting for initialization to complete
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }

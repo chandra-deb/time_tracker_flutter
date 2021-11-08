@@ -21,7 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: child,
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
