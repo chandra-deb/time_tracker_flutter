@@ -5,21 +5,31 @@ import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
 import 'package:time_tracker/models/user_client.dart';
 import 'package:time_tracker/services/auth.dart';
 
-class SignInPage extends StatelessWidget {
-  final Function(UserClient?) onSignIn;
+class SignInPage extends StatefulWidget {
   final AuthBase auth;
 
   const SignInPage({
     Key? key,
-    required this.onSignIn,
     required this.auth,
   }) : super(key: key);
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  bool loading = false;
+
+  void _clickHandler() {
+    _signInAnonymous();
+    setState(() {
+      loading = true;
+    });
+  }
+
   Future<void> _signInAnonymous() async {
     try {
-      UserClient? userClient = await auth.signInAnonymously();
-
-      onSignIn(userClient);
+      await widget.auth.signInAnonymously();
     } catch (e) {
       print(e.toString());
     }
@@ -99,8 +109,14 @@ class SignInPage extends StatelessWidget {
             text: "Go anonyomous",
             backgroundColor: Colors.lime.shade400,
             textColor: Colors.black87,
-            onPressed: _signInAnonymous,
+            onPressed: _clickHandler,
           ),
+          SizedBox(height: 10),
+          loading == true
+              ? Center(child: CircularProgressIndicator())
+              : SizedBox(
+                  height: 36,
+                ),
         ],
       ),
     );

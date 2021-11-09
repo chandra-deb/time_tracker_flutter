@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:time_tracker/models/user_client.dart';
 
 abstract class AuthBase {
+  Stream<UserClient?> get authStateChanges;
   UserClient? currentUser();
   Future<UserClient?> signInAnonymously();
   Future<void> signOut();
@@ -15,6 +16,11 @@ class Auth implements AuthBase {
       return null;
     }
     return UserClient(uid: user.uid);
+  }
+
+  @override
+  Stream<UserClient?> get authStateChanges {
+    return _firebaseAuth.authStateChanges().map(_userFromFirebase);
   }
 
   @override
