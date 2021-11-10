@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:time_tracker/app/sign_in/sign_in_button.dart';
 import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
-import 'package:time_tracker/models/user_client.dart';
 import 'package:time_tracker/services/auth.dart';
 
 class SignInPage extends StatefulWidget {
@@ -70,7 +69,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Sign In With Google",
             backgroundColor: Colors.white,
             textColor: Colors.black,
-            onPressed: () {},
+            onPressed: widget.auth.signInWithGoogle,
           ),
           SizedBox(
             height: 8.0,
