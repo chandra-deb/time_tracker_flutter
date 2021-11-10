@@ -74,13 +74,6 @@ class _SignInPageState extends State<SignInPage> {
           SizedBox(
             height: 8.0,
           ),
-          SocialSignInButton(
-            assetsPath: 'assets/images/facebook-logo.png',
-            text: "Sign In With Facebook",
-            backgroundColor: Colors.blue.shade900,
-            textColor: Colors.white,
-            onPressed: () {},
-          ),
           SizedBox(
             height: 8,
           ),
