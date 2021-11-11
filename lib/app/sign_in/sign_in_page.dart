@@ -41,9 +41,18 @@ class _SignInPageState extends State<SignInPage> {
     try {
       await widget.auth.signInWithGoogle();
     } catch (e) {
+      _showSnackBar(e.toString());
       print(e.toString());
       startLoading(false);
     }
+  }
+
+  void _showSnackBar(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text),
+      ),
+    );
   }
 
   _signInWithEmail() {
