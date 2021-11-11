@@ -13,6 +13,14 @@ class HomePage extends StatelessWidget {
     await auth.signOut();
   }
 
+  void _showSnackBar(String text, BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +28,10 @@ class HomePage extends StatelessWidget {
         title: Text("Home Page"),
         actions: [
           ElevatedButton(
-            onPressed: _signOut,
+            onPressed: () {
+              _signOut();
+              _showSnackBar("Logged Out!", context);
+            },
             child: Text(
               "Log Out",
               style: TextStyle(
