@@ -4,12 +4,12 @@
         "source": "/home/chandra/Flutter Projects/time_tracker/android/app/src/main/res/drawable/launch_background.xml"
     },
     {
-        "merged": "/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/home/chandra/Flutter Projects/time_tracker/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/chandra/Flutter Projects/time_tracker/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/chandra/Flutter Projects/time_tracker/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
         "merged": "/home/chandra/Flutter Projects/time_tracker/build/app/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.png.flat",

@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "map": [
+                {
+                    "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/values-en-rIN/values-en-rIN.xml",
+            "map": [
+                {
+                    "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

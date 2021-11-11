@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_disabled.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_dark_normal.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_dark_focused.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_light_focused.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_light_normal.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/notification_bg_low.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_text_dark_normal.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/notification_icon_background.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_disabled.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/notification_tile_bg.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/common_google_signin_btn_icon_light_normal.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/7b4d175cdfd60645b813d13bbaf93cb5/transformed/jetified-play-services-base-16.0.1/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "/home/chandra/Flutter Projects/time_tracker/build/google_sign_in/intermediates/merged_res/debug/drawable/notification_bg.xml",
+        "source": "/home/chandra/.gradle/caches/transforms-3/844dfb639f31d34439ca3dc1d93adb93/transformed/core-1.1.0/res/drawable/notification_bg.xml"
+    }
+]
