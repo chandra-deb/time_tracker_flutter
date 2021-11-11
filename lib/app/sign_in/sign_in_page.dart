@@ -19,18 +19,29 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   bool loading = false;
 
-  void _clickHandler() {
-    _signInAnonymous();
+  void startLoading(bool isLoading) {
     setState(() {
-      loading = true;
+      loading = isLoading;
     });
   }
 
   Future<void> _signInAnonymous() async {
+    startLoading(true);
     try {
       await widget.auth.signInAnonymously();
     } catch (e) {
       print(e.toString());
+      startLoading(false);
+    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    startLoading(true);
+    try {
+      await widget.auth.signInWithGoogle();
+    } catch (e) {
+      print(e.toString());
+      startLoading(false);
     }
   }
 
@@ -69,7 +80,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Sign In With Google",
             backgroundColor: Colors.white,
             textColor: Colors.black,
-            onPressed: widget.auth.signInWithGoogle,
+            onPressed: _signInWithGoogle,
           ),
           SizedBox(
             height: 8.0,
@@ -101,7 +112,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Go anonyomous",
             backgroundColor: Colors.lime.shade400,
             textColor: Colors.black87,
-            onPressed: _clickHandler,
+            onPressed: _signInAnonymous,
           ),
           SizedBox(height: 10),
           loading == true
