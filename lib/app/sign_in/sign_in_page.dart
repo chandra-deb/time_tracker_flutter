@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_tracker/app/sign_in/email_sign_in_page.dart';
 
 import 'package:time_tracker/app/sign_in/sign_in_button.dart';
 import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
@@ -43,6 +44,15 @@ class _SignInPageState extends State<SignInPage> {
       print(e.toString());
       startLoading(false);
     }
+  }
+
+  _signInWithEmail() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        fullscreenDialog: true,
+        builder: (context) => EmailSignInPage(),
+      ),
+    );
   }
 
   @override
@@ -92,7 +102,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Sign In With Email",
             backgroundColor: Colors.teal.shade700,
             textColor: Colors.white,
-            onPressed: () {},
+            onPressed: _signInWithEmail,
           ),
           SizedBox(
             height: 8,
