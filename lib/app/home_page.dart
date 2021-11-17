@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './utils/show_snack_bar.dart';
 import 'package:time_tracker/services/auth.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,14 +14,6 @@ class HomePage extends StatelessWidget {
     await auth.signOut();
   }
 
-  void _showSnackBar(String text, BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(text),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +23,7 @@ class HomePage extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               _signOut();
-              _showSnackBar("Logged Out!", context);
+              showSnackBar(context: context, text: "Logged out!");
             },
             child: Text(
               "Log Out",

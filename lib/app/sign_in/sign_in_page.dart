@@ -3,6 +3,7 @@ import 'package:time_tracker/app/sign_in/email_sign_in_page.dart';
 
 import 'package:time_tracker/app/sign_in/sign_in_button.dart';
 import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
+import 'package:time_tracker/app/utils/show_snack_bar.dart';
 import 'package:time_tracker/services/auth.dart';
 
 class SignInPage extends StatefulWidget {
@@ -41,25 +42,19 @@ class _SignInPageState extends State<SignInPage> {
     try {
       await widget.auth.signInWithGoogle();
     } catch (e) {
-      _showSnackBar(e.toString());
+      showSnackBar(context: context, text: e.toString());
       print(e.toString());
       startLoading(false);
     }
-  }
-
-  void _showSnackBar(String text) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(text),
-      ),
-    );
   }
 
   _signInWithEmail() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         fullscreenDialog: true,
-        builder: (context) => EmailSignInPage(),
+        builder: (context) => EmailSignInPage(
+          auth: widget.auth,
+        ),
       ),
     );
   }
