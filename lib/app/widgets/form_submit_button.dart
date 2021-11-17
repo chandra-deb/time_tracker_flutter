@@ -5,7 +5,7 @@ class FormSubmitButton extends CustomElevatedButton {
   FormSubmitButton({
     Key? key,
     required String text,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
   }) : super(
           key: key,
           child: Text(
