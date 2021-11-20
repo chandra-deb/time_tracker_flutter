@@ -32,6 +32,7 @@ class _SignInPageState extends State<SignInPage> {
     try {
       await widget.auth.signInAnonymously();
     } catch (e) {
+      showSnackBar(context: context, text: e.toString());
       print(e.toString());
       startLoading(false);
     }

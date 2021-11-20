@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:time_tracker/app/sign_in/validators.dart';
-
 import 'package:time_tracker/app/widgets/form_submit_button.dart';
+import 'package:time_tracker/app/widgets/platform_alert_dialog.dart';
 import 'package:time_tracker/services/auth.dart';
 
 enum SignInFormType { signIn, register }
@@ -20,7 +21,6 @@ class EmailSignInForm extends StatefulWidget with EmailAndPasswordValidators {
 
 class _EmailSignInFormState extends State<EmailSignInForm> {
   final _emailController = TextEditingController();
-
   final _passwordController = TextEditingController();
 
   String get _email => _emailController.text;
@@ -50,6 +50,37 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       Navigator.of(context).pop();
     } on Exception catch (e) {
       print(e.toString());
+      PlatformAlertDialog(
+        title: "Sign In Failed",
+        content: e.toString(),
+        defaultActionText: "Ok",
+      ).show(context);
+      // showDialog(
+      //     context: context,
+      //     builder: (context) {
+      //       if (_formType == SignInFormType.signIn) {
+      //         return AlertDialog(
+      //           title: Text("Sign In Failed!"),
+      //           content: Text(e.toString()),
+      //           actions: [
+      //             ElevatedButton(
+      //               child: Text("Ok"),
+      //               onPressed: () => Navigator.of(context).pop(),
+      //             ),
+      //           ],
+      //         );
+      //       }
+      //       return AlertDialog(
+      //         title: Text("Sign Up Failed!"),
+      //         content: Text(e.toString()),
+      //         actions: [
+      //           ElevatedButton(
+      //             child: Text("Ok"),
+      //             onPressed: () => Navigator.of(context).pop(),
+      //           ),
+      //         ],
+      //       );
+      //     });
     } finally {
       setState(() {
         _loading = false;
@@ -62,6 +93,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     setState(() {
       _submitted = false;
     });
+
     print("Toggle Form Type Called");
     setState(() {
       _formType = _formType == SignInFormType.register
