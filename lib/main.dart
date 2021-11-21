@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:time_tracker/services/auth_provider.dart';
 import 'app/landing_page.dart';
 import './services/auth.dart';
@@ -34,6 +35,10 @@ class MyApp extends StatelessWidget {
               LandingPage(),
             ),
           );
+          // return Provider<AuthBase>(
+          //   create: (_) => Auth(),
+          //   child: startMaterialApp(LandingPage()),
+          // );
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
