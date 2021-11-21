@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:time_tracker/app/widgets/platform_alert_dialog.dart';
+import 'package:time_tracker/services/auth_provider.dart';
 import './utils/show_snack_bar.dart';
-import 'package:time_tracker/services/auth.dart';
 
 class HomePage extends StatelessWidget {
-  final AuthBase auth;
-
   const HomePage({
-    required this.auth,
     Key? key,
   }) : super(key: key);
 
-  void _signOut() async {
+  void _signOut(BuildContext context) async {
+    final auth = AuthProvider.of(context);
+
     await auth.signOut();
   }
 
@@ -25,7 +24,7 @@ class HomePage extends StatelessWidget {
 
     if (didRequestSignOut) {
       print(didRequestSignOut);
-      _signOut();
+      _signOut(context);
       showSnackBar(context: context, text: "Logged out!");
     } else {
       print(didRequestSignOut);

@@ -4,14 +4,11 @@ import 'package:time_tracker/app/sign_in/email_sign_in_page.dart';
 import 'package:time_tracker/app/sign_in/sign_in_button.dart';
 import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
 import 'package:time_tracker/app/utils/show_snack_bar.dart';
-import 'package:time_tracker/services/auth.dart';
+import 'package:time_tracker/services/auth_provider.dart';
 
 class SignInPage extends StatefulWidget {
-  final AuthBase auth;
-
   const SignInPage({
     Key? key,
-    required this.auth,
   }) : super(key: key);
 
   @override
@@ -20,7 +17,6 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool loading = false;
-
   void startLoading(bool isLoading) {
     setState(() {
       loading = isLoading;
@@ -30,7 +26,9 @@ class _SignInPageState extends State<SignInPage> {
   Future<void> _signInAnonymous() async {
     startLoading(true);
     try {
-      await widget.auth.signInAnonymously();
+      final auth = AuthProvider.of(context);
+
+      await auth.signInAnonymously();
     } catch (e) {
       showSnackBar(context: context, text: e.toString());
       print(e.toString());
@@ -41,7 +39,9 @@ class _SignInPageState extends State<SignInPage> {
   Future<void> _signInWithGoogle() async {
     startLoading(true);
     try {
-      await widget.auth.signInWithGoogle();
+      final auth = AuthProvider.of(context);
+
+      await auth.signInWithGoogle();
     } catch (e) {
       showSnackBar(context: context, text: e.toString());
       print(e.toString());
@@ -53,9 +53,7 @@ class _SignInPageState extends State<SignInPage> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         fullscreenDialog: true,
-        builder: (context) => EmailSignInPage(
-          auth: widget.auth,
-        ),
+        builder: (context) => EmailSignInPage(),
       ),
     );
   }

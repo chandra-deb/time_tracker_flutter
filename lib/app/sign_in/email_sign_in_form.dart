@@ -4,15 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:time_tracker/app/sign_in/validators.dart';
 import 'package:time_tracker/app/widgets/form_submit_button.dart';
 import 'package:time_tracker/app/widgets/platform_alert_dialog.dart';
-import 'package:time_tracker/services/auth.dart';
+import 'package:time_tracker/services/auth_provider.dart';
 
 enum SignInFormType { signIn, register }
 
 class EmailSignInForm extends StatefulWidget with EmailAndPasswordValidators {
-  final AuthBase auth;
   EmailSignInForm({
     Key? key,
-    required this.auth,
   }) : super(key: key);
 
   @override
@@ -42,10 +40,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
     FocusManager.instance.primaryFocus!.unfocus();
     try {
+      final auth = AuthProvider.of(context);
+
       if (_formType == SignInFormType.signIn) {
-        await widget.auth.signInWithEmailAndPassword(_email, _password);
+        await auth.signInWithEmailAndPassword(_email, _password);
       } else {
-        await widget.auth.createAccountWithEmailAndPassword(_email, _password);
+        await auth.createAccountWithEmailAndPassword(_email, _password);
       }
       Navigator.of(context).pop();
     } on Exception catch (e) {
