@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:time_tracker/models/user_client.dart';
 
@@ -57,13 +56,13 @@ class Auth implements AuthBase {
         );
         return _userFromFirebase(authResult.user);
       } else {
-        throw PlatformException(
+        throw FirebaseAuthException(
           code: 'ERROR_MISSING_GOOGLE_AUTH_TOKEN',
           message: 'Missing Google Auth Token',
         );
       }
     } else {
-      throw PlatformException(
+      throw FirebaseAuthException(
         code: 'ERROR_ABORTED_BY_USER',
         message: 'Sign in aborted by user',
       );

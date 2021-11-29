@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:time_tracker/app/sign_in/email_sign_in_page.dart';
 
 import 'package:time_tracker/app/sign_in/sign_in_button.dart';
 import 'package:time_tracker/app/sign_in/social_sign_in_button.dart';
-import 'package:time_tracker/app/utils/show_snack_bar.dart';
-import 'package:time_tracker/services/auth_provider.dart';
+import 'package:time_tracker/app/widgets/firebase_exception_alert_dialog.dart';
+import 'package:time_tracker/app/widgets/platform_exception_alert.dart';
+import 'package:time_tracker/services/auth.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({
@@ -23,15 +27,23 @@ class _SignInPageState extends State<SignInPage> {
     });
   }
 
+  void _showSignInError(BuildContext context, FirebaseAuthException exception) {
+    print(exception.code);
+    FirebaseExceptionDialog(
+      title: "Sign In Failed!",
+      exception: exception,
+    ).show(context);
+  }
+
   Future<void> _signInAnonymous() async {
     startLoading(true);
     try {
-      final auth = AuthProvider.of(context);
+      final auth = Provider.of<AuthBase>(context, listen: false);
 
       await auth.signInAnonymously();
-    } catch (e) {
-      showSnackBar(context: context, text: e.toString());
-      print(e.toString());
+    } on FirebaseAuthException catch (e) {
+      _showSignInError(context, e);
+    } finally {
       startLoading(false);
     }
   }
@@ -39,12 +51,21 @@ class _SignInPageState extends State<SignInPage> {
   Future<void> _signInWithGoogle() async {
     startLoading(true);
     try {
-      final auth = AuthProvider.of(context);
+      final auth = Provider.of<AuthBase>(context, listen: false);
 
       await auth.signInWithGoogle();
-    } catch (e) {
-      showSnackBar(context: context, text: e.toString());
-      print(e.toString());
+    } on FirebaseAuthException catch (e) {
+      // showSnackBar(context: context, text: e.toString());
+      if (e.code != "ERROR_ABORTED_BY_USER") {
+        _showSignInError(context, e);
+      }
+    } on PlatformException catch (e) {
+      print(e.code);
+      PlatformExceptionAlertDialog(
+        exception: e,
+        title: "Sign In Failed!",
+      ).show(context);
+    } finally {
       startLoading(false);
     }
   }
@@ -77,14 +98,7 @@ class _SignInPageState extends State<SignInPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Sign In",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 32.0,
-            ),
-          ),
+          SizedBox(height: 50, child: _buildHeader()),
           SizedBox(
             height: 48.0,
           ),
@@ -93,7 +107,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Sign In With Google",
             backgroundColor: Colors.white,
             textColor: Colors.black,
-            onPressed: _signInWithGoogle,
+            onPressed: loading ? null : _signInWithGoogle,
           ),
           SizedBox(
             height: 8.0,
@@ -105,7 +119,7 @@ class _SignInPageState extends State<SignInPage> {
             text: "Sign In With Email",
             backgroundColor: Colors.teal.shade700,
             textColor: Colors.white,
-            onPressed: _signInWithEmail,
+            onPressed: loading ? null : _signInWithEmail,
           ),
           SizedBox(
             height: 8,
@@ -125,16 +139,29 @@ class _SignInPageState extends State<SignInPage> {
             text: "Go anonyomous",
             backgroundColor: Colors.lime.shade400,
             textColor: Colors.black87,
-            onPressed: _signInAnonymous,
+            onPressed: loading ? null : _signInAnonymous,
           ),
-          SizedBox(height: 10),
-          loading == true
-              ? Center(child: CircularProgressIndicator())
-              : SizedBox(
-                  height: 36,
-                ),
+          // SizedBox(height: 10),
+          // loading == true
+          //     ? Center(child: CircularProgressIndicator())
+          //     : SizedBox(
+          //         height: 36,
+          //       ),
         ],
       ),
     );
+  }
+
+  Widget _buildHeader() {
+    return loading == true
+        ? Center(child: CircularProgressIndicator())
+        : Text(
+            "Sign In",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 32.0,
+            ),
+          );
   }
 }

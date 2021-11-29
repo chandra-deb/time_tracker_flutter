@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:time_tracker/app/sign_in/validators.dart';
 import 'package:time_tracker/app/widgets/form_submit_button.dart';
-import 'package:time_tracker/app/widgets/platform_alert_dialog.dart';
-import 'package:time_tracker/services/auth_provider.dart';
+import 'package:time_tracker/app/widgets/firebase_exception_alert_dialog.dart';
+import 'package:time_tracker/services/auth.dart';
 
 enum SignInFormType { signIn, register }
 
@@ -33,6 +34,13 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     _passwordController.clear();
   }
 
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   Future<void> _sumbit() async {
     setState(() {
       _loading = true;
@@ -40,7 +48,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
     FocusManager.instance.primaryFocus!.unfocus();
     try {
-      final auth = AuthProvider.of(context);
+      final auth = Provider.of<AuthBase>(context, listen: false);
 
       if (_formType == SignInFormType.signIn) {
         await auth.signInWithEmailAndPassword(_email, _password);
@@ -48,12 +56,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         await auth.createAccountWithEmailAndPassword(_email, _password);
       }
       Navigator.of(context).pop();
-    } on Exception catch (e) {
-      print(e.toString());
-      PlatformAlertDialog(
+    } on FirebaseAuthException catch (e) {
+      FirebaseExceptionDialog(
         title: "Sign In Failed",
-        content: e.toString(),
-        defaultActionText: "Ok",
+        exception: e,
       ).show(context);
       // showDialog(
       //     context: context,

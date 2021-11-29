@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:time_tracker/app/widgets/platform_alert_dialog.dart';
-import 'package:time_tracker/services/auth_provider.dart';
+import 'package:time_tracker/services/auth.dart';
 import './utils/show_snack_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +10,10 @@ class HomePage extends StatelessWidget {
   }) : super(key: key);
 
   void _signOut(BuildContext context) async {
-    final auth = AuthProvider.of(context);
+    final auth = Provider.of<AuthBase>(
+      context,
+      listen: false,
+    );
 
     await auth.signOut();
   }

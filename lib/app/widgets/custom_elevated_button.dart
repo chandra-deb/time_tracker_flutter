@@ -30,7 +30,7 @@ class CustomElevatedButton extends StatelessWidget {
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(
-            onPressed == null ? Colors.grey : backgroundColor,
+            backgroundColor,
           ),
         ),
       ),
